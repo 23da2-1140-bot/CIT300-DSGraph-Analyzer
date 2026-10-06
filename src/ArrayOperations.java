@@ -62,6 +62,7 @@ public class ArrayOperations {
 
     public int getSize() { return size; }
     public boolean isEmpty() { return size == 0; }
+    // Returns true when there is no more space left to insert a new value
     public boolean isFull() { return size >= CAPACITY; }
 
     // Returns a copy of the filled part of the array (used by Searching and Performance)
