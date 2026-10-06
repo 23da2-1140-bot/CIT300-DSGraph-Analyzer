@@ -3,8 +3,8 @@
  * MEMBER 3: Linked List component.
  * A singly linked list of integers, with insert, delete, search, and display.
  *
- * This version is the first piece: nodes, insert at the end, and display.
- * Delete and search stay as placeholders so the rest of the program still compiles.
+ * Done so far: nodes, insert at the end, display, and delete the first match.
+ * Search stays as a placeholder so the rest of the program still compiles.
  */
 public class MyLinkedList {
 
@@ -35,8 +35,25 @@ public class MyLinkedList {
         size++;
     }
 
-    // Delete comes in the next push.
+    // Delete the first occurrence of a value. Returns false if not found.
     public boolean delete(int value) {
+        if (head == null) {
+            return false;
+        }
+        if (head.value == value) {
+            head = head.next;
+            size--;
+            return true;
+        }
+        Node current = head;
+        while (current.next != null) {
+            if (current.next.value == value) {
+                current.next = current.next.next;
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
         return false;
     }
 
